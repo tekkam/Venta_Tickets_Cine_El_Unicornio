@@ -1,0 +1,74 @@
+﻿@model VentaTicketsUnicornio.Models.Venta
+
+@{
+    ViewBag.Title = "Detalle venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--INICIO CARD TIPO PANEL-->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Ticket</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Catalogos.Nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Catalogos.Nombre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Empleados.Usuario)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Empleados.Usuario)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Fecha)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Asientos)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Asientos)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EnEfectivo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EnEfectivo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cobrado)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Cobrado)
+                </dd>
+
+            </dl>
+    </div>
+    </p>
+    <div>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.IdVenta }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Volver al listado", "Index")
+        </p>
+    </div>
+</div>
+<!--FIN CARD TIPO PANEL-->

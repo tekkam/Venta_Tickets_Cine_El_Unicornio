@@ -1,0 +1,78 @@
+﻿@model IEnumerable<VentaTicketsUnicornio.Models.Venta>
+
+@{
+    ViewBag.Title = "Ventas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--INICIO CARD TIPO PANEL-->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Resumen de @ViewBag.Title</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+        <p>
+            @Html.ActionLink("Nueva Venta", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Catalogos.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empleados.Usuario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Asientos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EnEfectivo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cobrado)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Catalogos.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Empleados.Usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Asientos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EnEfectivo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cobrado)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdVenta }) |
+                        @Html.ActionLink("Detalle", "Details", new { id = item.IdVenta }) |
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.IdVenta })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </p>
+        <p class="card-footer">
+            <strong>Ventas Totales: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="alert-info badge-pill">&sum;@ViewBag.VentasTotales</span></strong> <br /><br />
+            <strong>Ganancias Totales: &nbsp;&nbsp;<span class="alert-secondary badge-pill">&#36;@ViewBag.GranTotal</span></strong>
+        </p>
+    </div>
+</div>
+<!--FIN CARD TIPO PANEL-->

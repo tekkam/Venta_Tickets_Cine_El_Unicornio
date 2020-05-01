@@ -1,0 +1,58 @@
+﻿@model VentaTicketsUnicornio.Models.Catalogo
+
+@{
+    ViewBag.Title = "Borrar Pelicula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--INICIO CARD TIPO PANEL-->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Esta seguro de borrar esta Pelicula?</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            <div>
+                <h6>ADVERTENCIA: Todas las ventas registradas bajo este nombre desapareceran!!!!</h6>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Genero)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Genero)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Precio)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Precio)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Borrar" class="btn btn-warning" /> |
+                        @Html.ActionLink("Regresar al listado", "Index")
+                    </div>
+                }
+            </div>
+        </p>
+    </div>
+</div>
+<!--FIN CARD TIPO PANEL-->

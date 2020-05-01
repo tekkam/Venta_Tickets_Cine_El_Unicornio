@@ -1,0 +1,57 @@
+﻿@using VentaTicketsUnicornio.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+<!-- Start: Login Form Clean -->
+<div class="login-clean">
+    <section id="loginForm">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Use una cuenta local para iniciar sesión.</h4>
+            <hr />
+            <div class="illustration"><i class="icon ion-person-stalker" style="color: rgb(81,38,255);"></i></div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Iniciar sesión</button>
+            </div>
+            <p>
+                @Html.ActionLink("Registrar como nuevo usuario", "Register")
+            </p>
+            @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
+            <p>
+                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+            </p>*@
+        }
+    </section>
+</div>
+<!-- End: Login Form Clean -->
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

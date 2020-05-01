@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <title>@ViewBag.Title - El Unicornio Venta De Tickets Cine</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/assets/bootstrap/css")
+    @Styles.Render("~/assets/css")
+    @Styles.Render("~/assets/img")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" type="image/png" sizes="80x92" href="assets/img/g4912.png">
+    <link rel="icon" type="image/png" sizes="80x92" href="assets/img/g4912.png">
+    <link rel="icon" type="image/png" sizes="80x92" href="assets/img/g4912.png">
+    <link rel="icon" type="image/png" sizes="80x92" href="assets/img/g4912.png">
+    <link rel="icon" type="image/png" sizes="80x92" href="assets/img/g4912.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+</head>
+<body>
+
+    <!--Inicio cuerpo-->
+    <!--INICIO NAVIGATION-->
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white navbar-custom">
+        <div class="container">
+            <img class="rounded img-fluid" src="/assets/img/g4912.png"><a class="navbar-brand" href="/Home" style="font-family: 'Roboto Slab', serif;">El Fabuloso Unicornio</a><!--@*@Html.ActionLink("VENTA DE TICKETS EL FABULOSO UNICORNIO", "Index", "Home", new { area = "" }, new { @class = "navbar-caption text-black display-4" })*@-->
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Ventas/Create">VENTAS</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Empleados">EMPLEADOS</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Catalogos">CATALOGO</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Ventas">CUADRE</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Home/About">ACERCA DE</a></li>
+                    <!--<li class="nav-item" role="presentation"><a class="nav-link" href="/Home/Index" style="background-color: #f4476b;">Log In</a></li>-->
+                    <li class="nav-item" role="presentation">
+                        <div class="dropdown" style="margin-top: 12px">
+                            <button class="btn btn-group-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                ACCESO
+                            </button>
+                            <div class="dropdown-menu" style="background-color: white">
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--@* @Html.Partial("_LoginPartial")
+                               <li class="nav-item" role="presentation">@Html.ActionLink("Ventas", "Index", "Ventas", new { area = "" }, new { @class = "nav-link link text-black display-4" })</li>
+    <li class="nav-item" role="presentation">@Html.ActionLink("Catalogo", "Index", "Catalogos", new { area = "" }, new { @class = "nav-link link text-black display-4" })</li>
+    <li class="nav-item" role="presentation">@Html.ActionLink("Empleados", "Index", "Empleados", new { area = "" }, new { @class = "nav-link link text-black display-4" })</li>
+    <li class="nav-item" role="presentation">@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link link text-black display-4" })</li>
+    <li class="nav-item" role="presentation">@Html.ActionLink("Cerrar", "Index", "Home", new { area = "" }, new { @class = "nav-link link text-black display-4" })</li>*@-->
+            </div>
+        </div>
+    </nav>
+    <!--FIN NAVIGATION-->
+    <!--INICIO HEADER-->
+    <header class="text-center justify-content-center align-items-center align-content-center align-self-center masthead text-center text-white text-uppercase" style="height: 110px;padding: 110px;background-repeat: no-repeat;background: linear-gradient(0deg,#ff6a00,#ee0979);background-position: center;background-size: cover;font-family: Lato, sans-serif;">
+        <div class="text-center d-inline align-items-center align-content-center align-self-center masthead-content" style="margin: 15px;height: 0px;padding: 2px;">
+            <h1 style="font-family: 'Roboto Slab', serif;margin: 10px;">@ViewBag.Title</h1>
+        </div>
+    </header>
+    <!--FIN HEADER-->
+    <main>
+        <section>
+            <div class="container">
+                <div>
+                    <!--INICIO CUERPO INTERIOR-->
+
+                    <div class="container body-content">
+
+                        @RenderBody()
+
+                    </div>
+
+                    <!--FIN CUERPO INTERIOR-->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© Ceballos y Navarro 2015-@DateTime.Now.Year. El Fabuloso Unicornio.</p>
+        </div>
+    </footer>
+    <!--SCRIPTS DE PAGINA-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <!--Fin cuerpo-->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

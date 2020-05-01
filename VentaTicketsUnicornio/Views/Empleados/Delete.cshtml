@@ -1,0 +1,52 @@
+﻿@model VentaTicketsUnicornio.Models.Empleado
+
+@{
+    ViewBag.Title = "Borrar Usuario/Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--INICIO CARD TIPO PANEL-->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Esta seguro de borrar el Usuario/Empleado?</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            <h4>ADVERTENCIA: Todas las ventas registradas bajo este nombre desapareceran!!!!</h4>
+            <hr />
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Usuario)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Usuario)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Puesto)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Puesto)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Borrar" class="btn btn-warning" /> |
+                        @Html.ActionLink("Regresar al listado", "Index")
+                    </div>
+                }
+            </div>
+
+        </p>
+    </div>
+</div>
+<!--FIN CARD TIPO PANEL-->
