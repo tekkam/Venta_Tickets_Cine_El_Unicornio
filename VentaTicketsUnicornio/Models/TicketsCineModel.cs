@@ -1,22 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
-using System.Data.Sql;
 using System.Data.Entity;
-using System.Data.Entity.Core.Mapping;
-using System.Data.Entity.Infrastructure.Annotations;
-using System.Data.Entity.ModelConfiguration.Configuration;
-using System.Data.SqlTypes;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Web.ModelBinding;
-using System.Web.UI.WebControls;
-using Microsoft.Ajax.Utilities;
 
 namespace VentaTicketsUnicornio.Models
 {
