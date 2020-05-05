@@ -14,6 +14,7 @@ namespace VentaTicketsUnicornio.Controllers
         private TicketDBContext db = new TicketDBContext();
 
         // GET: Ventas
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             var ventas = db.Ventas.Include(v => v.Catalogos);
@@ -28,6 +29,7 @@ namespace VentaTicketsUnicornio.Controllers
         }
 
         // GET: Ventas/Details/5
+        [Authorize]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,6 +45,7 @@ namespace VentaTicketsUnicornio.Controllers
         }
 
         // GET: Ventas/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.IdCatalogo = new SelectList(db.Catalogos, "IdCatalogo", "Nombre");
@@ -54,6 +57,7 @@ namespace VentaTicketsUnicornio.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Create([Bind(Include = "IdVenta,Fecha,IdCatalogo,Asientos,TipoPago,Cobrado,Empleado")] Venta venta)
         {
             venta.Fecha = DateTime.Now.Date;
@@ -120,6 +124,7 @@ namespace VentaTicketsUnicornio.Controllers
         }
 
         // GET: Ventas/Edit/5
+        [Authorize]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -140,6 +145,7 @@ namespace VentaTicketsUnicornio.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "IdVenta,Fecha,IdCatalogo,Asientos,procede,TipoPago,Cobrado,Empleado")] Venta venta)
         {
             venta.Fecha = DateTime.Now.Date;
@@ -177,6 +183,7 @@ namespace VentaTicketsUnicornio.Controllers
         }
 
         // GET: Ventas/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -194,6 +201,7 @@ namespace VentaTicketsUnicornio.Controllers
         // POST: Ventas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Venta venta = await db.Ventas.FindAsync(id);
@@ -202,6 +210,7 @@ namespace VentaTicketsUnicornio.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public ActionResult LimiteAsientos()
         {
             ViewBag.Message = "Se alcanzo el limite de asientos para el estreno solicitado";

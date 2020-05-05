@@ -16,12 +16,14 @@ namespace VentaTicketsUnicornio.Controllers
         private TicketDBContext db = new TicketDBContext();
 
         // GET: Catalogos
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             return View(await db.Catalogos.ToListAsync());
         }
 
         // GET: Catalogos/Details/5
+        [Authorize]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace VentaTicketsUnicornio.Controllers
         }
 
         // GET: Catalogos/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +50,7 @@ namespace VentaTicketsUnicornio.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Create([Bind(Include = "IdCatalogo,Nombre,Genero,Precio,HoraInicio,HoraFin,Asientos")] Catalogo catalogo)
         {
             if (ModelState.IsValid)
@@ -60,6 +64,7 @@ namespace VentaTicketsUnicornio.Controllers
         }
 
         // GET: Catalogos/Edit/5
+        [Authorize]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,6 +84,7 @@ namespace VentaTicketsUnicornio.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "IdCatalogo,Nombre,Genero,Precio,HoraInicio,HoraFin,Asientos")] Catalogo catalogo)
         {
             if (ModelState.IsValid)
@@ -91,6 +97,7 @@ namespace VentaTicketsUnicornio.Controllers
         }
 
         // GET: Catalogos/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -108,6 +115,7 @@ namespace VentaTicketsUnicornio.Controllers
         // POST: Catalogos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Catalogo catalogo = await db.Catalogos.FindAsync(id);
