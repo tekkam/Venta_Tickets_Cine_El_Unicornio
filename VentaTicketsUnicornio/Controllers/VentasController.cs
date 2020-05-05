@@ -17,6 +17,8 @@ namespace VentaTicketsUnicornio.Controllers
         public async Task<ActionResult> Index()
         {
             var ventas = db.Ventas.Include(v => v.Catalogos);
+            ViewBag.VentasTotales = ventas.LongCount<Venta>();
+            ViewBag.GranTotal = ventas.Sum<Venta>(x => x.Cobrado);
             return View(await ventas.ToListAsync());
         }
 
