@@ -18,7 +18,12 @@ namespace VentaTicketsUnicornio.Controllers
         {
             var ventas = db.Ventas.Include(v => v.Catalogos);
             ViewBag.VentasTotales = ventas.LongCount<Venta>();
-            ViewBag.GranTotal = ventas.Sum<Venta>(x => x.Cobrado);
+            try
+            {
+                ViewBag.GranTotal = ventas.Sum<Venta>(x => x.Cobrado);
+            }
+            catch (Exception) { ViewBag.GranTotal = 0;}
+            
             return View(await ventas.ToListAsync());
         }
 
@@ -76,8 +81,11 @@ namespace VentaTicketsUnicornio.Controllers
             }
             catch (Exception) { }
 
+            var ventas = db.Ventas.Include(v => v.Catalogos);
+            var VentasTotales = ventas.LongCount<Venta>();
+
             int limite;
-            if (venta.IdVenta<=0)
+            if (VentasTotales<=0)
             {
                 limite = 100;
             }
@@ -94,8 +102,8 @@ namespace VentaTicketsUnicornio.Controllers
             catch (Exception) { }
 
             var reservado = venta.Asientos + tomados;
-
-            if (reservado < limite)
+  
+            if (reservado <= limite)
             {
                 if (ModelState.IsValid)
                 {
