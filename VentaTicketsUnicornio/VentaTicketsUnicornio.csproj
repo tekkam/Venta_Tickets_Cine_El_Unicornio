@@ -175,7 +175,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CatalogosController.cs" />
-    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\VentasController.cs" />
@@ -262,16 +261,12 @@
     <Content Include="Views\Catalogos\Details.cshtml" />
     <Content Include="Views\Catalogos\Edit.cshtml" />
     <Content Include="Views\Catalogos\Index.cshtml" />
+    <Content Include="Views\Shared\LimiteAsientos.cshtml" />
     <Content Include="Views\Ventas\Create.cshtml" />
     <Content Include="Views\Ventas\Delete.cshtml" />
     <Content Include="Views\Ventas\Details.cshtml" />
     <Content Include="Views\Ventas\Edit.cshtml" />
     <Content Include="Views\Ventas\Index.cshtml" />
-    <Content Include="Views\Empleados\Create.cshtml" />
-    <Content Include="Views\Empleados\Delete.cshtml" />
-    <Content Include="Views\Empleados\Details.cshtml" />
-    <Content Include="Views\Empleados\Edit.cshtml" />
-    <Content Include="Views\Empleados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

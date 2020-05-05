@@ -25,9 +25,6 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
 </head>
 <body>
-
-    <!--Inicio cuerpo-->
-    <!--INICIO NAVIGATION-->
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white navbar-custom">
         <div class="container">
             <img class="rounded img-fluid" src="/assets/img/g4912.png"><a class="navbar-brand" href="/Home" style="font-family: 'Roboto Slab', serif;">El Fabuloso Unicornio</a><!--@*@Html.ActionLink("VENTA DE TICKETS EL FABULOSO UNICORNIO", "Index", "Home", new { area = "" }, new { @class = "navbar-caption text-black display-4" })*@-->
@@ -35,7 +32,6 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/Ventas/Create">VENTAS</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Empleados">EMPLEADOS</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/Catalogos">CATALOGO</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/Ventas">CUADRE</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/Home/About">ACERCA DE</a></li>
@@ -53,27 +49,18 @@
             </div>
         </div>
     </nav>
-    <!--FIN NAVIGATION-->
-    <!--INICIO HEADER-->
     <header class="text-center justify-content-center align-items-center align-content-center align-self-center masthead text-center text-white text-uppercase" style="height: 110px;padding: 110px;background-repeat: no-repeat;background: linear-gradient(0deg,#ff6a00,#ee0979);background-position: center;background-size: cover;font-family: Lato, sans-serif;">
         <div class="text-center d-inline align-items-center align-content-center align-self-center masthead-content" style="margin: 15px;height: 0px;padding: 2px;">
             <h1 style="font-family: 'Roboto Slab', serif;margin: 10px;">@ViewBag.Title</h1>
         </div>
     </header>
-    <!--FIN HEADER-->
     <main>
         <section>
             <div class="container">
                 <div>
-                    <!--INICIO CUERPO INTERIOR-->
-
                     <div class="container body-content">
-
                         @RenderBody()
-
                     </div>
-
-                    <!--FIN CUERPO INTERIOR-->
                 </div>
             </div>
         </section>
@@ -84,14 +71,10 @@
             <p class="text-center text-white m-0 small">Copyright&nbsp;© Ceballos y Navarro 2015-@DateTime.Now.Year. El Fabuloso Unicornio.</p>
         </div>
     </footer>
-    <!--SCRIPTS DE PAGINA-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <!--Fin cuerpo-->
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
 </body>
 </html>

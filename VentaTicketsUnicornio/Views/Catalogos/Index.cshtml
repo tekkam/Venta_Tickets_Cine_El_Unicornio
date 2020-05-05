@@ -12,6 +12,7 @@
     </div>
     <div class="card-body">
         <p class="card-text">
+
         <p>
             @Html.ActionLink("Registrar Nueva", "Create")
         </p>
@@ -25,6 +26,15 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HoraInicio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HoraFin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Asientos)
                 </th>
                 <th></th>
             </tr>
@@ -42,6 +52,15 @@
                         @Html.DisplayFor(modelItem => item.Precio)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.HoraInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HoraFin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Asientos)
+                    </td>
+                    <td>
                         @Html.ActionLink("Editar", "Edit", new { id = item.IdCatalogo }) |
                         @Html.ActionLink("Detalles", "Details", new { id = item.IdCatalogo }) |
                         @Html.ActionLink("Borrar", "Delete", new { id = item.IdCatalogo })
@@ -50,6 +69,7 @@
             }
 
         </table>
+
         </p>
     </div>
 </div>

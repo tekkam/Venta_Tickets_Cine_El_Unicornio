@@ -25,14 +25,6 @@
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.Empleados.Usuario)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Empleados.Usuario)
-                    </dd>
-
-                    <dt>
                         @Html.DisplayNameFor(model => model.Fecha)
                     </dt>
 
@@ -49,11 +41,11 @@
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.EnEfectivo)
+                        @Html.DisplayNameFor(model => model.TipoPago)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.EnEfectivo)
+                        @Html.DisplayFor(model => model.TipoPago)
                     </dd>
 
                     <dt>
@@ -62,6 +54,14 @@
 
                     <dd>
                         @Html.DisplayFor(model => model.Cobrado)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Empleado)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Empleado)
                     </dd>
 
                 </dl>
@@ -76,6 +76,7 @@
                     </div>
                 }
             </div>
+
         </p>
     </div>
 </div>

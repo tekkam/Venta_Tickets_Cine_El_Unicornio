@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using System.Data.Entity;
+using System.Linq;
+using System.Web.Mvc;
 using VentaTicketsUnicornio.Models;
 
 namespace VentaTicketsUnicornio.Controllers
@@ -15,10 +13,18 @@ namespace VentaTicketsUnicornio.Controllers
 
         public ActionResult Index()
         {
-            var ventas = db.Ventas.Include(v => v.Catalogos).Include(v => v.Empleados);
+            var ventas = db.Ventas.Include(v => v.Catalogos);
 
             ViewBag.VentasTotales = 0;
             ViewBag.GranTotal = 0;
+
+            var empleado = User.Identity.Name;
+            if (empleado.Length < 1)
+            {
+                empleado = "Anonimo";
+            }
+            ViewBag.Usuario = empleado;
+
             try
             {
                 ViewBag.VentasTotales = ventas.LongCount<Venta>();

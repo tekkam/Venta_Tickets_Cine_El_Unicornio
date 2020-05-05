@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "LOGIN";
+    ViewBag.Title = "INICIO";
 }
 
 <div class="col">
@@ -10,8 +10,9 @@
 <div class="card-body">
     <p class="card-text">
         <h4>
-            <strong>Ventas Totales: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="alert-info badge-pill">&sum;@ViewBag.VentasTotales</span></strong> <br /><br/>
-            <strong>Ganancias Totales: &nbsp;&nbsp;<span class="alert-secondary badge-pill">&#36;@ViewBag.GranTotal</span></strong>
+            <strong>Ventas Totales: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="alert-info badge-pill">&sum;@ViewBag.VentasTotales</span></strong> <br /><br />
+            <strong>Ganancias Totales: &nbsp;&nbsp;<span class="alert-secondary badge-pill">&#36;@ViewBag.GranTotal</span></strong> <br /><br />
+            <strong>Vendedor actual: &nbsp;&nbsp;<span class="alert-warning badge-pill">@ViewBag.Usuario</span></strong>
         </h4>
         <br />
     </p>

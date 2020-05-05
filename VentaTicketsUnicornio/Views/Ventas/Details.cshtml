@@ -22,14 +22,6 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Empleados.Usuario)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Empleados.Usuario)
-                </dd>
-
-                <dt>
                     @Html.DisplayNameFor(model => model.Fecha)
                 </dt>
 
@@ -46,11 +38,11 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.EnEfectivo)
+                    @Html.DisplayNameFor(model => model.TipoPago)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.EnEfectivo)
+                    @Html.DisplayFor(model => model.TipoPago)
                 </dd>
 
                 <dt>
@@ -61,6 +53,14 @@
                     @Html.DisplayFor(model => model.Cobrado)
                 </dd>
 
+                <dt>
+                    @Html.DisplayNameFor(model => model.Empleado)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Empleado)
+                </dd>
+
             </dl>
     </div>
     </p>
@@ -69,6 +69,7 @@
             @Html.ActionLink("Editar", "Edit", new { id = Model.IdVenta }, new { @class = "btn btn-warning" }) |
             @Html.ActionLink("Volver al listado", "Index")
         </p>
+
     </div>
 </div>
 <!--FIN CARD TIPO PANEL-->

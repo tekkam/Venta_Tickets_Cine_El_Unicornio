@@ -7,25 +7,8 @@ using System.Data.Entity;
 
 namespace VentaTicketsUnicornio.Models
 {
-    public class Empleado
-    {
-        public Empleado()
-        {
-
-        }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdEmpleado { get; set; }
-        [Required]
-        [DisplayName("Empleado")]
-        public string Usuario { get; set; }
-        [Required]
-        public string Puesto { get; set; }
-
-        //Para las llaves foraneas.
-        public ICollection<Venta> Ventas { get; set; }
-    }
-
+    [Table("Catalogos")]
+    [DisplayColumn("Nombre")]
     public class Catalogo
     {
         public Catalogo()
@@ -47,7 +30,15 @@ namespace VentaTicketsUnicornio.Models
         [DataType(DataType.Currency)]
         public Decimal Precio { get; set; }
 
-        //Para las llaves foraneas.
+        [DataType(DataType.Time)]
+        public DateTime HoraInicio { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime HoraFin { get; set; }
+
+        [Display(Name = "Asientos Disponibles")]
+        public int Asientos { get; set; }
+
         public ICollection<Venta> Ventas { get; set; }
     }
 
@@ -55,8 +46,8 @@ namespace VentaTicketsUnicornio.Models
     {
         public Venta()
         {
-            Fecha = DateTime.Now;
-        }
+
+        }        
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -66,28 +57,34 @@ namespace VentaTicketsUnicornio.Models
 
         [Required]
         [DataType(DataType.Date)]
-        [Column(TypeName = "Date")]
+        [ReadOnly(true)]
         public DateTime Fecha { get; set; }
+
+        [ForeignKey("Catalogos")]
+        [Display(Name ="Pelicula")]
+        public int IdCatalogo { get; set; }
 
         [Required]
         public int Asientos { get; set; }
 
-        [Required]
-        [ForeignKey("Catalogos")]
-        public int IdCatalogo { get; set; }
+        [DisplayName("Tipo de Pago")]
+        [DataType(DataType.Text)]
+        public TipoPago TipoPago { get; set; }
 
-        [DisplayName("En Efectivo")]
-        public Boolean EnEfectivo { get; set; }
         [DataType(DataType.Currency)]
+        [Display(Name ="Monto a Cobrar")]
+        [ReadOnly(true)]
         public double Cobrado { get; set; }
-
-        [Required]
-        [ForeignKey("Empleados")]
-        public int IdEmpleado { get; set; }
-
-        //llaves foraneas
-        public virtual Empleado Empleados { get; set; }
+    
+        [ReadOnly(true)]
+        public string Empleado { get; set; }
+    
         public virtual Catalogo Catalogos { get; set; }
+    }
+
+    public enum TipoPago
+    {
+        Efectivo, Tarjeta
     }
 
     class TicketDBContext : DbContext
@@ -97,7 +94,6 @@ namespace VentaTicketsUnicornio.Models
             Database.SetInitializer<TicketDBContext>(new DropCreateDatabaseIfModelChanges<TicketDBContext>());
         }
 
-        public DbSet<Empleado> Empleados { get; set; }
         public DbSet<Catalogo> Catalogos { get; set; }
         public DbSet<Venta> Ventas { get; set; }
     }
